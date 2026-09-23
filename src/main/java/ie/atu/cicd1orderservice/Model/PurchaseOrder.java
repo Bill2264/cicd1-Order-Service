@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class PurchaseOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private long productId;
+    private Long id;
+    private Long productId;
     private int quantity;
 }

@@ -20,6 +20,7 @@ public class PurchaseOrderService {
     }
 
     public PurchaseOrder create(PurchaseOrder purchaseOrder) {
+        purchaseOrder.setId(null);
         return purchaseOrderRepository.save(purchaseOrder);
     }
 }
