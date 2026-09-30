@@ -24,4 +24,9 @@ public class PurchaseOrderController {
     public PurchaseOrder createPurchaseOrder(@RequestBody PurchaseOrder purchaseOrder) {
         return purchaseOrderService.create(purchaseOrder);
     }
+
+    @GetMapping("/test-catalog/{ProductId}")
+    public String testCatalogConnection(@PathVariable Long ProductId) {
+        return purchaseOrderService.TestCatalogConnection(ProductId);
+    }
 }

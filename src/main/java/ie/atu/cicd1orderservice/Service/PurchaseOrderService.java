@@ -2,6 +2,7 @@ package ie.atu.cicd1orderservice.Service;
 
 import ie.atu.cicd1orderservice.Model.PurchaseOrder;
 import ie.atu.cicd1orderservice.Repository.PurchaseOrderRepository;
+import ie.atu.cicd1orderservice.client.CatalogClient;
 import org.springframework.stereotype.Service;
 
 
@@ -11,8 +12,10 @@ import java.util.List;
 public class PurchaseOrderService {
 
     private final PurchaseOrderRepository purchaseOrderRepository;
-    public PurchaseOrderService(PurchaseOrderRepository purchaseOrderRepository) {
+    private final CatalogClient catalogClient;
+    public PurchaseOrderService(PurchaseOrderRepository purchaseOrderRepository, CatalogClient catalogClient) {
         this.purchaseOrderRepository = purchaseOrderRepository;
+        this.catalogClient = catalogClient;
     }
 
     public List<PurchaseOrder> getAll() {
@@ -22,5 +25,10 @@ public class PurchaseOrderService {
     public PurchaseOrder create(PurchaseOrder purchaseOrder) {
         purchaseOrder.setId(null);
         return purchaseOrderRepository.save(purchaseOrder);
+    }
+
+    public String TestCatalogConnection(Long ProductId)
+    {
+        return catalogClient.GetProductById(ProductId);
     }
 }
