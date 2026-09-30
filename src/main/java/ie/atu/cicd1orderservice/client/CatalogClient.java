@@ -1,5 +1,6 @@
 package ie.atu.cicd1orderservice.client;
 
+import ie.atu.cicd1orderservice.dto.ProductResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -8,5 +9,5 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface CatalogClient {
 
     @GetMapping("/products/{id}")
-    String GetProductById(@PathVariable("id") Long id);
+    ProductResponse GetProductById(@PathVariable("id") Long id);
 }
